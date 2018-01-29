@@ -1,0 +1,24 @@
+{
+  "name": "when-to-go-from-work",
+  "version": "0.0.1",
+  "description": "%DESCRIPTION%",
+  "license": "MIT",
+  "repository": "VovanR/when-to-go-from-work",
+  "author": {
+    "name": "Vladimir Rodkin",
+    "email": "mail@vovanr.com",
+    "url": "https://github.com/VovanR"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "keywords": [],
+  "dependencies": {},
+  "devDependencies": {
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": true
+  }
+}

@@ -1,0 +1,8 @@
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+  padding: 2px;
+  font-size: var(--app-font-size);
+}

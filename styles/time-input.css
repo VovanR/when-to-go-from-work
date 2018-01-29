@@ -1,0 +1,61 @@
+.time-input {
+  position: relative;
+  flex: 1 0 auto;
+  text-align: center;
+  font-size: inherit;
+  outline: none;
+  border: 2px solid #fff;
+  transition: border ease 0.15s;
+}
+
+.time-input::before {
+  font-size: 22px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.time-input:focus {
+  border-color: #ff3304;
+}
+
+.time-input + .time-input {
+  margin-top: 2px;
+}
+
+.time-input_arrival,
+.time-input_leave {
+}
+
+.time-input_arrival {
+  color: #9C27B0;
+  flex-grow: 2;
+  font-size: 2em;
+}
+.time-input_arrival::before {
+  content: 'arrival';
+}
+
+.time-input_working {
+  color: #3F51B5;
+}
+.time-input_working::before {
+  content: 'working';
+}
+
+.time-input_lunch {
+  color: #ff5722;
+}
+.time-input_lunch::before {
+  content: 'lunch';
+}
+
+.time-input_leave {
+  color: #4CAF50;
+  flex-grow: 3;
+  font-size: 3em;
+}
+.time-input_leave::before {
+  content: 'leave';
+}

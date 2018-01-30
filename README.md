@@ -1,6 +1,6 @@
 # when-to-go-from-work
 
-> %DESCRIPTION%
+> Calculate when to go from work
 
 Demo: [vovanr.github.io/when-to-go-from-work][demo]
 

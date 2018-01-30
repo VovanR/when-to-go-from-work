@@ -9,7 +9,7 @@
 }
 
 .time-input::before {
-  font-size: 22px;
+  font-size: var(--time-input-label-font-size);
   display: block;
   position: absolute;
   top: 0;

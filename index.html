@@ -12,10 +12,25 @@
 </head>
 <body>
   <div id="app" class="app">
-    <input class="time-input time-input_arrival" id="arrival" type="time" value="09:00">
-    <input class="time-input time-input_working" id="working" type="time" value="08:00">
-    <input class="time-input time-input_lunch" id="lunch" type="time" value="01:00">
-    <input class="time-input time-input_leave" id="leave" type="time" value="18:00">
+    <div class="time-input time-input_arrival">
+      <label class="time-input__label" for="arrival">arrival</label>
+      <input class="time-input__input" id="arrival" type="time" value="09:00">
+    </div>
+
+    <div class="time-input time-input_working">
+      <label class="time-input__label" for="working">working</label>
+      <input class="time-input__input" id="working" type="time" value="08:00">
+    </div>
+
+    <div class="time-input time-input_lunch">
+      <label class="time-input__label" for="lunch">lunch</label>
+      <input class="time-input__input" id="lunch" type="time" value="01:00">
+    </div>
+
+    <div class="time-input time-input_leave">
+      <label class="time-input__label" for="leave">leave</label>
+      <input class="time-input__input" id="leave" type="time" value="18:00">
+    </div>
   </div>
 
   <script src="js/utils/time.js"></script>

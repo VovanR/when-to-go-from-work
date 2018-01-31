@@ -1,4 +1,5 @@
 :root {
   --app-font-size: 1em;
   --time-input-label-font-size: 0.75rem;
+  --time-input-input-border-width: 2px;
 }

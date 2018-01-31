@@ -1,4 +1,4 @@
-/* global document parseTimeToMilliseconds formatMillisecondsToTime */
+/* global document */
 
 const arrivalInput = document.getElementById('arrival')
 const workingInput = document.getElementById('working')
@@ -29,17 +29,15 @@ class A {
   }
 
   _updateArrival() {
-    this._arrivalInput.value = this._calculateArrivalChangers()
+    this._arrivalInput.valueAsNumber = this._calculateArrivalChangers()
   }
 
   _updateLeave() {
-    this._leaveInput.value = this._calculateLeaveChangers()
+    this._leaveInput.valueAsNumber = this._calculateLeaveChangers()
   }
 
   _defaultCalculate(input, reducer) {
-    const ms = this._changers.reduce(reducer, parseTimeToMilliseconds(input.value))
-    const time = formatMillisecondsToTime(ms)
-    return time
+    return this._changers.reduce(reducer, input.valueAsNumber)
   }
 
   _calculateArrivalChangers() {
@@ -51,7 +49,7 @@ class A {
   }
 
   _defaultReducer(acc, input, reducer) {
-    return reducer(acc, parseTimeToMilliseconds(input.value))
+    return reducer(acc, input.valueAsNumber)
   }
 
   _arrivalReducer(acc, input) {

@@ -4,6 +4,7 @@
 
 Demo: [vovanr.github.io/when-to-go-from-work][demo]
 
+![](preview.png)
 
 ## License
 MIT © [Vladimir Rodkin](https://github.com/VovanR)

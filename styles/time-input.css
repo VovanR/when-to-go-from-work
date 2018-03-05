@@ -28,6 +28,11 @@
   transition: border ease 0.15s;
 }
 
+.time-input__input::-webkit-inner-spin-button,
+.time-input__input::-webkit-outer-spin-button {
+  height: 100%;
+}
+
 .time-input__input:focus {
   border-color: #ff3304;
 }

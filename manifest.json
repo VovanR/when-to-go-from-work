@@ -1,0 +1,12 @@
+{
+    "name": "when-to-go-from-work",
+    "short_name": "When Home",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "type": "image/svg+xml",
+            "sizes": "any"
+        }
+    ],
+    "start_url": "index.html"
+}

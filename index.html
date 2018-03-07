@@ -10,10 +10,12 @@
 
   <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
 
+  <link rel="manifest" href="manifest.json">
+
   <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-  <div id="app" class="app">
+  <main id="app" class="app">
     <div class="time-input time-input_arrival">
       <label class="time-input__label" for="arrival">arrival</label>
       <input class="time-input__input" id="arrival" type="time" value="09:00">
@@ -42,8 +44,8 @@
     >
       <span class="copyright__license">MIT ©</span> <span class="copyright__author">Vladimir Rodkin</span>
     </a>
-  </div>
+  </main>
 
-  <script src="js/index.js"></script>
+  <script src="js/index.js" async></script>
 </body>
 </html>

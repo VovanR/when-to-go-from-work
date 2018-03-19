@@ -1,12 +1,28 @@
 {
     "name": "when-to-go-from-work",
     "short_name": "When Home",
-    "icons": {
-      "48": "favicon.svg",
-      "96": "favicon.svg",
-      "192": "favicon.svg",
-      "512": "favicon.svg"
-    },
+    "icons": [
+      {
+        "src": "favicon.svg",
+        "type": "image/svg+xml",
+        "sizes": "48x48"
+      },
+      {
+        "src": "favicon.svg",
+        "type": "image/svg+xml",
+        "sizes": "96x96"
+      },
+      {
+        "src": "favicon.svg",
+        "type": "image/svg+xml",
+        "sizes": "192x192"
+      },
+      {
+        "src": "favicon.svg",
+        "type": "image/svg+xml",
+        "sizes": "512x512"
+      }
+    ],
     "start_url": "index.html",
     "version": "0.1",
     "manifest_version": 2,

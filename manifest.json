@@ -4,12 +4,13 @@
     "icons": {
       "48": "favicon.svg",
       "96": "favicon.svg",
-      "192": "favicon.svg"
+      "192": "favicon.svg",
+      "512": "favicon.svg"
     },
     "start_url": "index.html",
     "version": "0.1",
     "manifest_version": 2,
-    "display": "browser",
+    "display": "minimal-ui",
     "background_color": "#ffffff",
     "theme_color": "#ffffff"
 }

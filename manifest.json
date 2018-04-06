@@ -1,32 +1,22 @@
 {
-    "name": "when-to-go-from-work",
+    "name": "When Home",
     "short_name": "When Home",
     "icons": [
       {
-        "src": "favicon.svg",
-        "type": "image/svg+xml",
-        "sizes": "48x48"
-      },
-      {
-        "src": "favicon.svg",
-        "type": "image/svg+xml",
-        "sizes": "96x96"
-      },
-      {
-        "src": "favicon.svg",
-        "type": "image/svg+xml",
+        "src": "public/android-chrome-192x192.png",
+        "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "favicon.svg",
-        "type": "image/svg+xml",
+        "src": "public/android-chrome-512x512.png",
+        "type": "image/png",
         "sizes": "512x512"
       }
     ],
     "start_url": "index.html",
     "version": "0.1",
     "manifest_version": 2,
-    "display": "minimal-ui",
+    "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff"
 }

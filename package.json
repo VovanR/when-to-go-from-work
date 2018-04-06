@@ -5,19 +5,24 @@
   "private": true,
   "license": "MIT",
   "repository": "VovanR/when-to-go-from-work",
-  "author": {
-    "name": "Vladimir Rodkin",
-    "email": "mail@vovanr.com",
-    "url": "https://github.com/VovanR"
-  },
+  "author": "Vladimir Rodkin <mail@vovanr.com> (https://github.com/VovanR)",
   "scripts": {
-    "test": "xo"
+    "start": "http-server .",
+    "test": "xo",
+    "prepush": "npm test",
+    "precommit": "npm test"
   },
   "keywords": [],
   "dependencies": {},
   "devDependencies": {
-    "xo": "^0.18.2"
+    "http-server": "^0.11.1",
+    "husky": "^0.14.3",
+    "xo": "^0.20.3"
   },
+  "bugs": {
+    "url": "https://github.com/VovanR/choice-roulete/issues"
+  },
+  "homepage": "https://github.com/VovanR/choice-roulete#readme",
   "xo": {
     "semicolon": false,
     "space": true

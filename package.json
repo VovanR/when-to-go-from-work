@@ -2,6 +2,7 @@
   "name": "when-to-go-from-work",
   "version": "0.0.1",
   "description": "Calculate when to go from work",
+  "private": true,
   "license": "MIT",
   "repository": "VovanR/when-to-go-from-work",
   "author": {

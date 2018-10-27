@@ -20,9 +20,9 @@
     "xo": "^0.20.3"
   },
   "bugs": {
-    "url": "https://github.com/VovanR/choice-roulete/issues"
+    "url": "https://github.com/VovanR/when-to-go-from-work/issues"
   },
-  "homepage": "https://github.com/VovanR/choice-roulete#readme",
+  "homepage": "https://github.com/VovanR/when-to-go-from-work#readme",
   "xo": {
     "semicolon": false,
     "space": true

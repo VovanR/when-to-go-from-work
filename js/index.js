@@ -1,5 +1,8 @@
 /* global document */
 
+import {FocusController} from './focus-controller.js'
+import {TimeSelect} from './time-select.js'
+
 const arrivalInput = document.getElementById('arrival')
 const workingInput = document.getElementById('working')
 const lunchInput = document.getElementById('lunch')
@@ -74,3 +77,38 @@ class A {
 const a = new A({arrivalInput, leaveInput})
 a.addLeaveChanger(workingInput)
 a.addLeaveChanger(lunchInput)
+
+const focusController = new FocusController({
+  inputs: [
+    arrivalInput,
+    workingInput,
+    lunchInput,
+    leaveInput
+  ]
+})
+
+const c = new TimeSelect({
+  element: document.getElementById('time-select'),
+  onChange: ({type, value}) => {
+    const valueSeparator = ':'
+
+    const activeInput = focusController.getActiveElement()
+    const currentValue = activeInput.value
+
+    let currentValueArray
+    if (currentValue === '') {
+      currentValueArray = ['00', '00']
+    } else {
+      currentValueArray = currentValue.split(valueSeparator)
+    }
+
+    if (String(value).length === 1) {
+      value = '0' + value
+    }
+
+    const valueArrayIndexByType = type === 'hours' ? 0 : 1
+    currentValueArray[valueArrayIndexByType] = value
+    activeInput.value = currentValueArray.join(':')
+    activeInput.dispatchEvent(new Event('input'))
+  }
+})

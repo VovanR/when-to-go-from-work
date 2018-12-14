@@ -33,6 +33,7 @@
   height: 100%;
 }
 
+.time-input__input_focus,
 .time-input__input:focus {
   border-color: #ff3304;
 }

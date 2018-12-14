@@ -24,7 +24,12 @@
   },
   "homepage": "https://github.com/VovanR/when-to-go-from-work#readme",
   "xo": {
+    "space": true,
     "semicolon": false,
-    "space": true
+    "envs": "browser",
+    "rules": {
+      "import/extensions": 0,
+      "unicorn/import-index": 0
+    }
   }
 }

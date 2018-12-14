@@ -1,0 +1,61 @@
+.time-select {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  font-family: monospace;
+}
+
+.time-select__hours,
+.time-select__minutes {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.time-select__hours {
+}
+
+.time-select__minutes {
+}
+
+.time-select__label {
+  text-align: center;
+  padding: 2px;
+}
+
+.time-select__button {
+  font-family: inherit;
+  flex-grow: 1;
+  background: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin: 1px;
+  /* border: 2px solid rgba(0, 0, 0, 0.15); */
+  border: 2px solid transparent;
+  outline: none;
+}
+
+.time-select__button:focus {
+  border-color: #ff3304;
+}
+
+.time-select__button:disabled {
+  display: none;
+}
+
+.time-select__hours .time-select__label {
+  color: #4CAF50;
+}
+
+.time-select__minutes .time-select__label {
+  color: #3F51B5;
+}
+
+.time-select__toggle-controls {
+  font-family: inherit;
+  background: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin: 1px;
+  /* border: 2px solid rgba(0, 0, 0, 0.15); */
+  border: 2px solid transparent;
+  outline: none;
+}

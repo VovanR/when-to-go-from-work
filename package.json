@@ -16,8 +16,8 @@
   "dependencies": {},
   "devDependencies": {
     "http-server": "^0.11.1",
-    "husky": "^0.14.3",
-    "xo": "^0.20.3"
+    "husky": "^1.2.1",
+    "xo": "^0.23.0"
   },
   "bugs": {
     "url": "https://github.com/VovanR/when-to-go-from-work/issues"

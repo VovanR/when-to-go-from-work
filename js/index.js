@@ -2,16 +2,43 @@
 
 import {FocusController} from './focus-controller.js'
 import {TimeSelect} from './time-select.js'
+import {TimeInput} from './time-input.js'
 
-const arrivalInput = document.getElementById('arrival')
-const workingInput = document.getElementById('working')
-const lunchInput = document.getElementById('lunch')
-const leaveInput = document.getElementById('leave')
+const arrivalTimeInput = new TimeInput({
+  element: document.querySelector('#arrival-input'),
+  value: {
+    hours: 9
+  }
+})
+
+const workingTimeInput = new TimeInput({
+  element: document.querySelector('#working-input'),
+  value: {
+    hours: 8
+  }
+})
+
+const lunchTimeInput = new TimeInput({
+  element: document.querySelector('#lunch-input'),
+  value: {
+    hours: 1
+  }
+})
+
+const leaveTimeInput = new TimeInput({
+  element: document.querySelector('#leave-input'),
+  value: {
+    hours: 18
+  }
+})
 
 class A {
-  constructor(options) {
-    this._arrivalInput = options.arrivalInput
-    this._leaveInput = options.leaveInput
+  constructor({
+    arrivalTimeInput,
+    leaveTimeInput
+  }) {
+    this._arrivalInput = arrivalTimeInput
+    this._leaveInput = leaveTimeInput
 
     this._changers = []
 
@@ -24,23 +51,23 @@ class A {
   }
 
   _bindLeaveChanger(input) {
-    input.addEventListener('input', () => this._updateLeave())
+    input.addOnChangeListener(() => this._updateLeave())
   }
 
   _bindArrivalChanger(input) {
-    input.addEventListener('input', () => this._updateArrival())
+    input.addOnChangeListener(() => this._updateArrival())
   }
 
   _updateArrival() {
-    this._arrivalInput.valueAsNumber = this._calculateArrivalChangers()
+    this._arrivalInput.setTimeInMilliseconds(this._calculateArrivalChangers())
   }
 
   _updateLeave() {
-    this._leaveInput.valueAsNumber = this._calculateLeaveChangers()
+    this._leaveInput.setTimeInMilliseconds(this._calculateLeaveChangers())
   }
 
   _defaultCalculate(input, reducer) {
-    return this._changers.reduce(reducer, input.valueAsNumber)
+    return this._changers.reduce(reducer, input.getTimeInMilliseconds())
   }
 
   _calculateArrivalChangers() {
@@ -52,7 +79,7 @@ class A {
   }
 
   _defaultReducer(acc, input, reducer) {
-    return reducer(acc, input.valueAsNumber)
+    return reducer(acc, input.getTimeInMilliseconds())
   }
 
   _arrivalReducer(acc, input) {
@@ -74,41 +101,37 @@ class A {
   }
 }
 
-const a = new A({arrivalInput, leaveInput})
-a.addLeaveChanger(workingInput)
-a.addLeaveChanger(lunchInput)
+const a = new A({
+  arrivalTimeInput,
+  leaveTimeInput
+})
+a.addLeaveChanger(workingTimeInput)
+a.addLeaveChanger(lunchTimeInput)
 
 const focusController = new FocusController({
+  focusedInput: arrivalTimeInput,
   inputs: [
-    arrivalInput,
-    workingInput,
-    lunchInput,
-    leaveInput
+    arrivalTimeInput,
+    workingTimeInput,
+    lunchTimeInput,
+    leaveTimeInput
   ]
 })
 
 const c = new TimeSelect({
-  element: document.getElementById('time-select'),
+  element: document.querySelector('#time-select'),
   onChange: ({type, value}) => {
-    const valueSeparator = ':'
-
     const activeInput = focusController.getActiveElement()
-    const currentValue = activeInput.value
 
-    let currentValueArray
-    if (currentValue === '') {
-      currentValueArray = ['00', '00']
-    } else {
-      currentValueArray = currentValue.split(valueSeparator)
+    switch (type) {
+      case 'hours':
+        activeInput.setHours(value)
+        break
+      case 'minutes':
+        activeInput.setMinutes(value)
+        break
+      default:
+        throw new Error('Unhandled type change')
     }
-
-    if (String(value).length === 1) {
-      value = '0' + value
-    }
-
-    const valueArrayIndexByType = type === 'hours' ? 0 : 1
-    currentValueArray[valueArrayIndexByType] = value
-    activeInput.value = currentValueArray.join(':')
-    activeInput.dispatchEvent(new Event('input'))
   }
 })

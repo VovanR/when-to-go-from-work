@@ -50,7 +50,7 @@ const createElement = ({
   } else if (children) {
     children.forEach(childElement => {
       if (childElement instanceof Node) {
-        element.appendChild(childElement)
+        element.append(childElement)
       }
     })
   }

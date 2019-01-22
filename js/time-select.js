@@ -4,9 +4,12 @@ import {
 } from './utils.js'
 
 class TimeSelect {
-  constructor(props) {
-    this.element = props.element
-    this._onChange = props.onChange || noop
+  constructor({
+    element,
+    onChange
+  }) {
+    this._element = element
+    this._onChange = onChange || noop
 
     this._build()
     this._bindControls()
@@ -14,14 +17,14 @@ class TimeSelect {
 
   _build() {
     const $fragment = document.createDocumentFragment()
-    $fragment.appendChild(this._buildHours())
-    $fragment.appendChild(this._buildMinutes())
+    $fragment.append(this._buildHours())
+    $fragment.append(this._buildMinutes())
 
-    this.element.appendChild($fragment)
+    this._element.append($fragment)
   }
 
   _bindControls() {
-    this.element.addEventListener('click', e => {
+    this._element.addEventListener('click', e => {
       if (e.target.classList.contains('time-select__button')) {
         const {
           type,
@@ -30,7 +33,7 @@ class TimeSelect {
 
         this._onChange({
           type,
-          value
+          value: Number(value)
         })
       }
     })
@@ -76,7 +79,7 @@ class TimeSelect {
     const $fragment = document.createDocumentFragment()
 
     for (let i = from; i <= to; i += step) {
-      $fragment.appendChild(this._buildControl(type, i))
+      $fragment.append(this._buildControl(type, i))
     }
 
     return $fragment

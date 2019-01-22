@@ -1,11 +1,16 @@
 class FocusController {
-  constructor(props) {
-    this._inputs = props.inputs
+  constructor({
+    focusedInput,
+    inputs = []
+  }) {
+    this._inputs = inputs
 
-    this._activeClassName = 'time-input__input_focus'
-    this._activeElement = this._inputs[0]
+    // TODO: `TimeInput`
+    this._activeElement = focusedInput || this._inputs[0]
 
     this._bindControls()
+
+    this._setActive(this._activeElement)
   }
 
   _bindControls() {
@@ -13,15 +18,15 @@ class FocusController {
   }
 
   _bindFocus(element) {
-    element.addEventListener('focus', ({target}) => this._setActive(target))
+    element.addOnFocusListener(element => this._setActive(element))
   }
 
   _setActive(element) {
     this._inputs.forEach(input => {
       if (input === element) {
-        input.classList.add(this._activeClassName)
+        input.setFocusedStyle()
       } else {
-        input.classList.remove(this._activeClassName)
+        input.removeFocusedStyle()
       }
     })
 

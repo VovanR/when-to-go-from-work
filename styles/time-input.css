@@ -16,13 +16,17 @@
   position: absolute;
   top: calc(var(--time-input-input-border-width) * 2);
   left: calc(var(--time-input-input-border-width) * 2);
+  z-index: -1;
+  cursor: default;
 }
 
 .time-input__input {
   font-size: inherit;
   color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1 0 auto;
-  text-align: center;
   outline: none;
   border: var(--time-input-input-border-width) solid #fff;
   transition: border ease 0.15s;
@@ -33,6 +37,7 @@
   height: 100%;
 }
 
+.time-input__input_focus,
 .time-input__input:focus {
   border-color: #ff3304;
 }

@@ -8,23 +8,34 @@
   "author": "Vladimir Rodkin <mail@vovanr.com> (https://github.com/VovanR)",
   "scripts": {
     "start": "http-server .",
-    "test": "xo",
-    "prepush": "npm test",
-    "precommit": "npm test"
+    "test": "xo && ava",
+    "tdd": "ava -w"
   },
   "keywords": [],
   "dependencies": {},
   "devDependencies": {
+    "ava": "^1.1.0",
+    "esm": "^3.0.84",
     "http-server": "^0.11.1",
-    "husky": "^0.14.3",
-    "xo": "^0.20.3"
+    "husky": "^1.3.1",
+    "xo": "^0.24.0"
   },
   "bugs": {
     "url": "https://github.com/VovanR/when-to-go-from-work/issues"
   },
   "homepage": "https://github.com/VovanR/when-to-go-from-work#readme",
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
   "xo": {
+    "space": true,
     "semicolon": false,
-    "space": true
+    "envs": "browser",
+    "rules": {
+      "import/extensions": 0,
+      "unicorn/import-index": 0
+    }
   }
 }

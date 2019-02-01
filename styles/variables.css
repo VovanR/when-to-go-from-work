@@ -1,5 +1,20 @@
 :root {
   --app-font-size: 1em;
   --time-input-label-font-size: 0.75rem;
-  --time-input-input-border-width: 2px;
+  --time-input-input-border-width: 1px;
+
+  --gap: 3px;
+
+  /* Color scheme: https://color.adobe.com/Birdfolio-Blues-color-theme-1945976/ */
+  --color1: #2a3941;
+  --color2: #3f5765;
+  --color3: #bdd4de;
+  --color4: #efefef;
+  --color5: #ff530d;
+
+  --control-input-color: var(--color1);
+  --control-input-border-width: 1px;
+  --control-input-border-color: var(--color3);
+  --control-input-focus-border-color: var(--color5);
+  --control-input-background-color: #fff;
 }

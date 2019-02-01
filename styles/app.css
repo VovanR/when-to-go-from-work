@@ -10,11 +10,11 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 2px;
+  padding: var(--gap);
   flex: 1 0 auto;
 }
 
 .app__control-panel {
   /* padding-bottom for copyright */
-  padding: 2px 2px 45px 0;
+  padding: var(--gap) var(--gap) 45px 0;
 }

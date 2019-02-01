@@ -3,6 +3,7 @@
   flex-direction: row;
   height: 100%;
   font-family: monospace;
+  cursor: default;
 }
 
 .time-select__hours,
@@ -13,49 +14,82 @@
 }
 
 .time-select__hours {
+  min-width: 58px;
 }
 
 .time-select__minutes {
+  min-width: 64px;
+  margin-left: 1px;
 }
 
 .time-select__label {
   text-align: center;
-  padding: 2px;
+  padding: var(--gap);
 }
 
 .time-select__button {
+  --time-select-border-color: var(--control-input-border-color);
+
   font-family: inherit;
+  color: var(--control-input-color);
   flex-grow: 1;
-  background: none;
-  background-color: rgba(0, 0, 0, 0.05);
-  margin: 1px;
-  /* border: 2px solid rgba(0, 0, 0, 0.15); */
-  border: 2px solid transparent;
+  background-image: none;
+  background-color: var(--control-input-background-color);
+  border: none;
   outline: none;
+  box-shadow: 0 0 0 1px var(--time-select-border-color);
+}
+
+.time-select__button + .time-select__button {
+  margin-top: 1px;
 }
 
 .time-select__button:focus {
-  border-color: #ff3304;
+  --time-select-border-color: var(--control-input-focus-border-color);
+  z-index: 1;
 }
 
 .time-select__button:disabled {
   display: none;
 }
 
-.time-select__hours .time-select__label {
-  color: #4CAF50;
+
+.time-select__toggle-controls {
+  --time-select-border-color: var(--control-input-border-color);
+
+  font-family: inherit;
+  color: var(--control-input-color);
+  background-image: none;
+  background-color: var(--control-input-background-color);
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 1px var(--time-select-border-color);
 }
+
+
+.time-select__hours .time-select__label {
+  color: #4caf50;
+}
+
+.time-select__hours .time-select__toggle-controls:not(:first-of-type) {
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+.time-select__hours .time-select__toggle-controls:first-of-type {
+  border-right-width: 0;
+}
+
+.time-select__hours .time-select__button {
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
 
 .time-select__minutes .time-select__label {
   color: #3F51B5;
 }
 
-.time-select__toggle-controls {
-  font-family: inherit;
-  background: none;
-  background-color: rgba(0, 0, 0, 0.05);
-  margin: 1px;
-  /* border: 2px solid rgba(0, 0, 0, 0.15); */
-  border: 2px solid transparent;
-  outline: none;
+.time-select__minutes .time-select__button:not(:first-of-type) {
+  border-top-width: 0;
 }

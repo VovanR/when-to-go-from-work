@@ -137,8 +137,17 @@ function togglePreviousSiblings($toggler) {
 }
 
 function toggleSiblings($toggler, nextElementGetter) {
-  for (let $next = nextElementGetter($toggler); $next.dataset.togglable; $next = nextElementGetter($next)) {
-    $next.disabled = !$next.disabled
+  let outOfRange = false
+  for (let $next = nextElementGetter($toggler); $next; $next = nextElementGetter($next)) {
+    if ($next.dataset.togglable) {
+      if (outOfRange) {
+        $next.disabled = true
+      } else {
+        $next.disabled = !$next.disabled
+      }
+    } else {
+      outOfRange = true
+    }
   }
 }
 

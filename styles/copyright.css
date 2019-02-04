@@ -25,13 +25,14 @@
   font-size: 100%;
   padding: 1em;
   text-decoration: none;
-  color: #000;
+  color: var(--control-input-color);
   white-space: nowrap;
 }
 
 .copyright:hover {
   opacity: 1 !important;
   text-decoration: none;
+  box-shadow: -1px -1px 0 var(--control-input-border-color);
 }
 
 .copyright__license {
@@ -47,8 +48,8 @@
 }
 
 .copyright {
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid transparent;
+  margin-right: var(--gap);
+  margin-bottom: var(--gap);
   background-clip: padding-box;
   z-index: 10;
 }

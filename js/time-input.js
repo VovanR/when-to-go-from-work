@@ -78,7 +78,6 @@ class TimeInput {
   }
 
   getTimeInMilliseconds() {
-    console.log('getTimeInMilliseconds', hoursToMinutes(this._hours), this._minutes)
     return secondsToMilliseconds(minutesToSeconds(hoursToMinutes(this._hours) + this._minutes))
   }
 

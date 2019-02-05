@@ -15,11 +15,15 @@
 
 .time-select__hours {
   min-width: 58px;
+  /* Compensate box-shadow outline out of box */
+  padding-left: var(--control-input-border-width);
 }
 
 .time-select__minutes {
   min-width: 64px;
-  margin-left: 1px;
+  margin-left: var(--control-input-border-width);
+  /* Compensate box-shadow outline out of box */
+  padding-right: var(--control-input-border-width);
 }
 
 .time-select__label {

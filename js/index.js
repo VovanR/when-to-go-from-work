@@ -3,32 +3,44 @@
 import {FocusController} from './focus-controller.js'
 import {TimeSelect} from './time-select.js'
 import {TimeInput} from './time-input.js'
+import {Storage} from './storage.js'
+
+// TODO: Refactor storage usage
+const appStorage = new Storage()
 
 const arrivalTimeInput = new TimeInput({
+  name: 'arrival',
   element: document.querySelector('#arrival-input'),
   value: {
-    hours: 9
+    hours: 9,
+    milliseconds: appStorage.load('arrival')
   }
 })
 
 const workingTimeInput = new TimeInput({
+  name: 'working',
   element: document.querySelector('#working-input'),
   value: {
-    hours: 8
+    hours: 8,
+    milliseconds: appStorage.load('working')
   }
 })
 
 const lunchTimeInput = new TimeInput({
+  name: 'lunch',
   element: document.querySelector('#lunch-input'),
   value: {
-    hours: 1
+    hours: 1,
+    milliseconds: appStorage.load('lunch')
   }
 })
 
 const leaveTimeInput = new TimeInput({
+  name: 'leave',
   element: document.querySelector('#leave-input'),
   value: {
-    hours: 18
+    hours: 18,
+    milliseconds: appStorage.load('leave')
   }
 })
 
@@ -51,19 +63,29 @@ class A {
   }
 
   _bindLeaveChanger(input) {
-    input.addOnChangeListener(() => this._updateLeave())
+    input.addOnChangeListener((ms, name) => {
+      this._updateLeave()
+      appStorage.save(name, ms)
+    })
   }
 
   _bindArrivalChanger(input) {
-    input.addOnChangeListener(() => this._updateArrival())
+    input.addOnChangeListener((ms, name) => {
+      this._updateArrival()
+      appStorage.save(name, ms)
+    })
   }
 
   _updateArrival() {
-    this._arrivalInput.setTimeInMilliseconds(this._calculateArrivalChangers())
+    const ms = this._calculateArrivalChangers()
+    this._arrivalInput.setTimeInMilliseconds(ms)
+    appStorage.save(this._arrivalInput.getName(), ms)
   }
 
   _updateLeave() {
-    this._leaveInput.setTimeInMilliseconds(this._calculateLeaveChangers())
+    const ms = this._calculateLeaveChangers()
+    this._leaveInput.setTimeInMilliseconds(ms)
+    appStorage.save(this._leaveInput.getName(), ms)
   }
 
   _defaultCalculate(input, reducer) {

@@ -1,12 +1,15 @@
 class TimeInput {
   constructor({
+    name,
     element,
     value: {
       hours = 0,
-      minutes = 0
+      minutes = 0,
+      milliseconds = 0
     } = {}
   }) {
-    this._milliseconds = 0
+    this._name = name
+    this._milliseconds = milliseconds
     this._hours = hours
     this._minutes = minutes
     this._element = element
@@ -18,7 +21,16 @@ class TimeInput {
 
     this._bindControls()
 
-    this._update()
+    // TODO: Refactor this
+    if (this._milliseconds) {
+      this.setTimeInMilliseconds(this._milliseconds)
+    } else {
+      this._update()
+    }
+  }
+
+  getName() {
+    return this._name
   }
 
   addOnChangeListener(callback) {
@@ -36,7 +48,8 @@ class TimeInput {
   }
 
   _onChange() {
-    this._onChangeListeners.forEach(callback => callback(this.getTimeInMilliseconds()))
+    // TODO: Refactor callback arguments
+    this._onChangeListeners.forEach(callback => callback(this.getTimeInMilliseconds(), this._name))
   }
 
   _getFormattedValue() {

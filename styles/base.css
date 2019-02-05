@@ -10,3 +10,13 @@ body {
 body {
   margin: 0;
 }
+
+/* Remove Firefox (Android) border radius on buttons */
+button {
+  border-radius: 0;
+}
+
+/* Remove Firefox (Android) dotted border on focus */
+button::-moz-focus-inner {
+  border: 0;
+}

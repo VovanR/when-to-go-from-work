@@ -3,7 +3,6 @@
   display: flex;
   flex: 1 0 auto;
   font-size: inherit;
-  font-family: monospace;
   cursor: default;
 }
 

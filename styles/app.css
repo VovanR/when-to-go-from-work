@@ -4,6 +4,7 @@
   flex-direction: row;
   height: 100%;
   font-size: var(--app-font-size);
+  font-family: var(--app-font-family);
 }
 
 .app__container {

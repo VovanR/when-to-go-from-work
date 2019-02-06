@@ -1,5 +1,8 @@
 :root {
   --app-font-size: 1em;
+  /* Font stack from Bootstrap 4 */
+  --app-font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
   --time-input-label-font-size: 0.75rem;
   --time-input-input-border-width: 1px;
 

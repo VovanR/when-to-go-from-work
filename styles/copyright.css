@@ -48,8 +48,15 @@
 }
 
 .copyright {
+  --height: 41px;
+
+  font-family: inherit;
+  height: var(--height);
+  line-height: var(--height);
   margin-right: var(--gap);
   margin-bottom: var(--gap);
+  padding-top: 0;
+  padding-bottom: 0;
   background-clip: padding-box;
   z-index: 10;
 }

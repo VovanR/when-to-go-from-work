@@ -157,3 +157,4 @@ const c = new TimeSelect({
     }
   }
 })
+c.initialize()

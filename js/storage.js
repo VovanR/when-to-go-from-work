@@ -6,7 +6,7 @@ class Storage {
   load(type) {
     try {
       return JSON.parse(window.localStorage.getItem(type))
-    } catch (err) {
+    } catch (error) {
       return null
     }
   }

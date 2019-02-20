@@ -10,7 +10,9 @@ class TimeSelect {
   }) {
     this._element = element
     this._onChange = onChange || noop
+  }
 
+  initialize() {
     this._build()
     this._bindControls()
   }

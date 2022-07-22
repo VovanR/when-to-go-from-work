@@ -20,7 +20,7 @@ const getHoursLastToggleControl = () => hoursSelector.find('.time-select__toggle
 
 // eslint-disable-next-line no-unused-expressions
 fixture`Getting Started`
-  .page`http://localhost:8080`
+  .page`http://localhost:8081`
 
 /*
   Functional-Style Selectors https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors/functional-style-selectors.html

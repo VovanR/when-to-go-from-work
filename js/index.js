@@ -4,44 +4,96 @@ import {FocusController} from './focus-controller.js'
 import {TimeSelect} from './time-select.js'
 import {TimeInput} from './time-input.js'
 import {Storage} from './storage.js'
+import {Settings} from './settings.js'
+
+// TODO: Create Value class to manipulate
 
 // TODO: Refactor storage usage
 const appStorage = new Storage()
 
+const SETTINGS_STORAGE_KEY_NAME = 'settings'
+const settings = new Settings()
+settings.setPredefined({
+  arrival: {
+    hours: 9
+  },
+  working: {
+    hours: 8
+  },
+  lunch: {
+    hours: 1
+  },
+  // TODO: Calculate leave on app loaded. Or mark computed value to filter on save
+  leave: {
+    hours: 18
+  }
+})
+
+function loadSettings() {
+  const savedSettings = appStorage.load(SETTINGS_STORAGE_KEY_NAME)
+
+  if (savedSettings === null) {
+    return
+  }
+
+  settings.setDefaults(savedSettings)
+}
+
+loadSettings()
+
+document.querySelector('#settings-save-button').addEventListener('click', () => {
+  // TODO: Refactor this
+  [
+    arrivalTimeInput,
+    leaveTimeInput,
+    workingTimeInput,
+    lunchTimeInput
+  ].forEach(input => {
+    settings.setOption(input.getName(), input.getTimeInMilliseconds())
+  })
+
+  appStorage.save(SETTINGS_STORAGE_KEY_NAME, settings.getUserDefaults())
+})
+
+document.querySelector('#settings-reset-button').addEventListener('click', () => {
+  settings.reset()
+  appStorage.delete(SETTINGS_STORAGE_KEY_NAME)
+})
+
+function loadTimeInputValue(name) {
+  let milliseconds = appStorage.load(name)
+
+  if (milliseconds === null) {
+    milliseconds = settings.getOption(name)
+  }
+
+  return {
+    milliseconds
+  }
+}
+
 const arrivalTimeInput = new TimeInput({
   name: 'arrival',
   element: document.querySelector('#arrival-input'),
-  value: {
-    hours: 9,
-    milliseconds: appStorage.load('arrival')
-  }
+  value: loadTimeInputValue('arrival')
 })
 
 const workingTimeInput = new TimeInput({
   name: 'working',
   element: document.querySelector('#working-input'),
-  value: {
-    hours: 8,
-    milliseconds: appStorage.load('working')
-  }
+  value: loadTimeInputValue('working')
 })
 
 const lunchTimeInput = new TimeInput({
   name: 'lunch',
   element: document.querySelector('#lunch-input'),
-  value: {
-    hours: 1,
-    milliseconds: appStorage.load('lunch')
-  }
+  value: loadTimeInputValue('lunch')
 })
 
 const leaveTimeInput = new TimeInput({
   name: 'leave',
   element: document.querySelector('#leave-input'),
-  value: {
-    hours: 18,
-    milliseconds: appStorage.load('leave')
-  }
+  value: loadTimeInputValue('leave')
 })
 
 class A {

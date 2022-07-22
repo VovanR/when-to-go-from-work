@@ -10,6 +10,10 @@ class Storage {
       return null
     }
   }
+
+  delete(type) {
+    window.localStorage.removeItem(type)
+  }
 }
 
 export {Storage}

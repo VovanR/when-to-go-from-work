@@ -8,7 +8,7 @@ const copyrightElement = Selector('.copyright')
 
 // eslint-disable-next-line no-unused-expressions
 fixture`Getting Started`
-  .page`http://localhost:8080`
+  .page`http://localhost:8081`
 
 test('should have copyright block with project source URL', async t => {
   await t

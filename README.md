@@ -7,8 +7,6 @@
 [![Tested with TestCafe][testcafe-image]][testcafe-url]
 
 [![Build Status][travis-image]][travis-url]
-[![Dependency Status][depstat-image]][depstat-url]
-[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
 > Calculate when to go from work
 
@@ -29,9 +27,3 @@ MIT © [Vladimir Rodkin](https://github.com/VovanR)
 
 [travis-url]: https://travis-ci.org/VovanR/when-to-go-from-work
 [travis-image]: https://img.shields.io/travis/VovanR/when-to-go-from-work.svg?style=flat-square
-
-[depstat-url]: https://david-dm.org/VovanR/when-to-go-from-work
-[depstat-image]: https://david-dm.org/VovanR/when-to-go-from-work.svg?style=flat-square
-
-[depstat-dev-url]: https://david-dm.org/VovanR/when-to-go-from-work
-[depstat-dev-image]: https://david-dm.org/VovanR/when-to-go-from-work/dev-status.svg?style=flat-square
